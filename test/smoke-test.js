@@ -32,7 +32,7 @@ iracing.once('Connected', function () {
   iracing.once('Telemetry', function (data) {
     console.log('Telemetry event received')
     expect(data).to.exist.and.to.be.an('object')
-    expect(data).to.have.property('timestamp').that.is.a('date')
+    expect(data).to.have.property('timestamp').that.is.a('number')
     expect(data).to.have.property('values').that.is.an('object')
     telemetry = data
     checkTelemetryValues(telemetry, desc)
@@ -42,7 +42,7 @@ iracing.once('Connected', function () {
   iracing.once('SessionInfo', function (data) {
     console.log('SessionInfo event received')
     expect(data).to.exist.and.to.be.an('object')
-    expect(data).to.have.property('timestamp').that.is.a('date')
+    expect(data).to.have.property('timestamp').that.is.a('number')
     expect(data).to.have.property('data').that.is.an('object')
     done('sessioninfo')
   })

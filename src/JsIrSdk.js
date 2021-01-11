@@ -374,7 +374,7 @@ function JsIrSdk (IrSdkWrapper, opts) {
   var telemetryIntervalId = setInterval(function () {
     checkConnection()
     if (connected && IrSdkWrapper.updateTelemetry()) {
-      var now = new Date() // date gives ms accuracy
+      var now = (new Date()).getTime() // date gives ms accuracy
       self.telemetry = IrSdkWrapper.getTelemetry()
       // replace ctime timestamp
       self.telemetry.timestamp = now
@@ -410,7 +410,7 @@ function JsIrSdk (IrSdkWrapper, opts) {
   var sessionInfoIntervalId = setInterval(function () {
     checkConnection()
     if (connected && IrSdkWrapper.updateSessionInfo()) {
-      var now = new Date()
+      var now = (new Date()).getTime()
       var sessionInfo = IrSdkWrapper.getSessionInfo()
       var doc
       setImmediate(function () {
